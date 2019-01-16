@@ -12,6 +12,7 @@ RUN apk add make \
   openssl-dev \
   zlib-dev \
   libcurl \
+  curl \
   linux-headers
 
 RUN curl -L https://github.com/Overbryd/docker-phantomjs-alpine/releases/download/2.11/phantomjs-alpine-x86_64.tar.bz2 | tar xj
