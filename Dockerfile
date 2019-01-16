@@ -21,4 +21,4 @@ RUN wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.gz ; \
   make ; \
   make install ; \
   cd .. ; \
-  gem install arachni
+  gem install --no-document arachni
