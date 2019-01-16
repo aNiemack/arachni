@@ -11,7 +11,8 @@ RUN apk add make \
   libc-dev \
   openssl-dev \
   zlib-dev \
-  libcurl
+  libcurl \
+  linux-headers
   
 RUN wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.gz ; \
   tar -xvzf ruby-2.3.8.tar.gz ; \
