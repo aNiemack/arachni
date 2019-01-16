@@ -13,18 +13,11 @@ RUN apk add make \
   zlib-dev \
   libcurl
   
-RUN wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.gz
-
-RUN tar -xvzf ruby-2.3.8.tar.gz
-
-RUN cd ruby-2.3.8
-
-RUN ./configure
-
-RUN make
-
-RUN make install
-
-RUN cd ..
-
-RUN gem install arachni
+RUN wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.gz ; \
+  tar -xvzf ruby-2.3.8.tar.gz ; \
+  cd ruby-2.3.8 ; \
+  ./configure ; \
+  make ; \
+  make install ; \
+  cd .. ; \
+  gem install arachni
