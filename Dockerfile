@@ -1,30 +1,12 @@
-FROM alpine:latest
+FROM debian:latest
 
-RUN apk update \
-    apk upgrade
-   
-RUN apk add make \
-  gzip \
-  tar \
-  wget \
-  gcc \
-  libc-dev \
-  openssl-dev \
-  zlib-dev \
-  libcurl \
-  curl \
-  fontconfig \
-  linux-headers
+RUN apt-get update 
 
-RUN curl -L https://github.com/Overbryd/docker-phantomjs-alpine/releases/download/2.11/phantomjs-alpine-x86_64.tar.bz2 | tar xj
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
-RUN ln -s phantomjs/phantomjs /usr/bin/phantomjs
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  wget
 
-RUN wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.gz ; \
-  tar -xvzf ruby-2.3.8.tar.gz ; \
-  cd ruby-2.3.8 ; \
-  ./configure ; \
-  make ; \
-  make install ; \
-  cd .. ; \
-  gem install --no-document arachni
+RUN wget https://github.com/Arachni/arachni/releases/download/v1.5.1/arachni-1.5.1-0.5.12-linux-x86_64.tar.gz; \
+  tar -xvzf arachni-1.5.1-0.5.12-linux-x86_64.tar.gz ; \
+  cd arachni-1.5.1-0.5.12 
